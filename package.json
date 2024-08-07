@@ -1,0 +1,17 @@
+{
+  "name": "user-search-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:frontend": "pnpm --filter @user-search-app/frontend start",
+    "start:backend": "pnpm --filter @user-search-app/backend start",
+    "start": "pnpm run --parallel start:frontend start:backend",
+    "build": "pnpm run --parallel build",
+    "dev": "pnpm run --parallel dev"
+  },
+  "author": "Saidafzal Kholkhujaev",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
