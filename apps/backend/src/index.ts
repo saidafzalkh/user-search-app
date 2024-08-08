@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
+import searchRoute from "./routes/searchRoute";
+import "dotenv/config";
 
 const app = express();
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/api", searchRoute);
 
 const PORT = process.env.PORT || 3000;
 
