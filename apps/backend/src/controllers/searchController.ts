@@ -6,7 +6,6 @@ import { perfomSearch } from "../services/searchService";
 export const searchUsers = async (req: Request, res: Response) => {
   try {
     const searchParams: SearchParams = req.body;
-    console.log(searchParams);
     await delay(5000);
 
     const results = await perfomSearch(searchParams);
