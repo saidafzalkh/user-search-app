@@ -13,7 +13,10 @@ const SearchForm = ({ className, ...props }: Props) => {
   const [phone, setPhone] = useState<string | null>(null);
   const [data, setData] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [validationError, setValidationError] = useState({ email: "", phone: "" });
+  const [validationError, setValidationError] = useState({
+    email: "",
+    phone: "",
+  });
 
   const abortControllerRef = useRef<AbortController | null>(null);
 
@@ -40,7 +43,10 @@ const SearchForm = ({ className, ...props }: Props) => {
     setLoading(true);
 
     try {
-      const res = await searchUsers({ email, ...(phone ? { number: phone } : {}) }, signal);
+      const res = await searchUsers(
+        { email, ...(phone ? { number: phone } : {}) },
+        signal,
+      );
       setData(res.results);
     } catch (error) {
       console.log(error);
@@ -51,8 +57,14 @@ const SearchForm = ({ className, ...props }: Props) => {
   };
 
   return (
-    <div className={cn("p-4 bg-white shadow-md rounded-lg", className)} {...props}>
-      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start">
+    <div
+      className={cn("p-4 bg-white shadow-md rounded-lg", className)}
+      {...props}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col md:flex-row gap-4 items-start"
+      >
         <label className="flex flex-col gap-1 w-full md:w-auto">
           <input
             className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-black"
