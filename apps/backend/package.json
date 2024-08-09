@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@user-search-app/types": "workspace:*",
+    "@user-search-app/validation": "workspace:*",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

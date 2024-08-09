@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@user-search-app/types": "workspace:*",
+    "@user-search-app/validation": "workspace:*",
     "axios": "^1.7.3",
+    "clsx": "^2.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-imask": "^7.6.1",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
