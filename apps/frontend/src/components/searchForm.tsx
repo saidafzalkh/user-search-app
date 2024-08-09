@@ -5,6 +5,7 @@ import { User } from "@user-search-app/types";
 import { IMaskInput } from "react-imask";
 import maskNumber from "../utils/mask-resolve";
 import { validateEmail, validateNumber } from "@user-search-app/validation";
+import axios from "axios";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -28,6 +29,7 @@ const SearchForm = ({ className, ...props }: Props) => {
       return;
     }
 
+    console.log(phone && validateNumber(phone));
     if (phone && !validateNumber(phone)) {
       setValidationError((state) => ({ ...state, phone: "Invalid number" }));
       return;
@@ -47,11 +49,12 @@ const SearchForm = ({ className, ...props }: Props) => {
         { email, ...(phone ? { number: phone } : {}) },
         signal,
       );
+      setLoading(false);
       setData(res.results);
     } catch (error) {
+      if (!axios.isCancel(error)) setLoading(false);
       console.log(error);
     } finally {
-      setLoading(false);
       setValidationError({ email: "", phone: "" });
     }
   };
@@ -74,7 +77,7 @@ const SearchForm = ({ className, ...props }: Props) => {
           />
           <span className="text-red-500 text-sm">{validationError.email}</span>
         </label>
-
+        {phone}
         <label className="flex flex-col gap-1 w-full md:w-auto">
           <IMaskInput
             className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-black"

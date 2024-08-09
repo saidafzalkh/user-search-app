@@ -3,5 +3,5 @@ export const validateEmail = (email: string): boolean => {
 };
 
 export const validateNumber = (number: string): boolean => {
-  return /^[0-9]{2}(-[0-9]{2}){2}$/.test(number);
+  return /^\d{6}$/.test(number);
 };
