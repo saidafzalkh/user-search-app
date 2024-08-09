@@ -2,7 +2,7 @@
   "name": "@user-search-app/backend",
   "version": "1.0.0",
   "private": true,
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "compile": "tsc",
