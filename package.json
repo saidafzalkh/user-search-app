@@ -5,7 +5,7 @@
   "scripts": {
     "start:frontend": "pnpm --filter @user-search-app/frontend start",
     "start:backend": "pnpm --filter @user-search-app/backend start",
-    "start": "pnpm run --parallel start:frontend start:backend",
+    "start": "pnpm run --parallel start",
     "build": "pnpm run --parallel build",
     "dev": "pnpm run --parallel dev"
   },

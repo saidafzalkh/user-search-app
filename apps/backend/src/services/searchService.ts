@@ -4,7 +4,7 @@ import fs from "fs/promises";
 
 const dataPath = path.join(__dirname, "../..", "./src/utils", "data.json");
 
-export const perfomSearch = async (params: SearchParams): Promise<User[]> => {
+export const performSearch = async (params: SearchParams): Promise<User[]> => {
   const data = await fs.readFile(dataPath, "utf-8");
   const users: User[] = JSON.parse(data);
 

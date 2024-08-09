@@ -1,2 +1,2 @@
 export const delay = (ms: number) =>
-  new Promise((reslove) => setTimeout(reslove, ms));
+  new Promise((resolve) => setTimeout(resolve, ms));
