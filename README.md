@@ -8,11 +8,14 @@ This project is a simple user search application with a backend built using Expr
 2. Masked Input: The number field is masked to display numbers in the format XX-XX-XX.
 3. Search Functionality: The backend searches through the JSON file for matching entries based on the input.
 4. Request Handling:
-  - Backend: The backend simulates a long processing time by delaying the response by 5 seconds.
-  - Frontend: If a new request is made before the previous one is completed, the previous request is canceled with AbortController API.
+
+- Backend: The backend simulates a long processing time by delaying the response by 5 seconds.
+- Frontend: If a new request is made before the previous one is completed, the previous request is canceled with AbortController API.
+
 5. Validation:
-  - Backend: Validates the input before processing the search request.
-  - Frontend: Ensures that the email field is correctly formatted, and the number field (if provided) matches the expected format.
+
+- Backend: Validates the input before processing the search request.
+- Frontend: Ensures that the email field is correctly formatted, and the number field (if provided) matches the expected format.
 
 ## Tech Stack
 
@@ -24,6 +27,7 @@ This project is a simple user search application with a backend built using Expr
 ## Project Structure
 
 The project uses a monorepo structure with pnpm workspaces:
+
 ```plaintext
 user-search-app/
 ├── apps/
@@ -48,30 +52,57 @@ user-search-app/
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/saidafzalkh/user-search-app.git
 cd user-search-app
 ```
+
 2. Install dependencies:
+
 ```bash
 pnpm install
 ```
-3. Build the project:
+
+3. Setting Up the Frontend Environment
+
+- Copy the environment file
+  Navigate to the apps/frontend directory and copy the .env.example file to create a new .env file:
+
+```bash
+cp apps/frontend/.env.example apps/frontend/.env
+```
+
+- Edit the API Base URL
+  Open the newly created .env file and update the VITE_BASE_API_URL variable to point to your backend URL. By default, this should be:
+
+```bash
+VITE_BASE_API_URL=http://localhost:3001
+```
+
+Adjust the URL if your backend is running on a different address.
+
+4. Build the project:
+
 ```bash
 pnpm build
 ```
-4. Start the development servers:
+
+5. Start the development servers:
+
 ```bash
 pnpm dev
 ```
+
 Alternatively, to start the production server:
+
 ```bash
 pnpm start
 ```
 
 # Development Choices
 
-- *Monorepo Structure:* Chosen for better code organization and sharing of types and validation logic between frontend and backend.
-- *Frontend Validation:* Performed to provide immediate feedback to the user, ensuring that the input adheres to expected formats before sending a request.
-- *Backend Validation:* Ensures data integrity and security by re-validating the input on the server side, regardless of frontend validation.
-- *Request Cancellation:* Utilized the Abort Controller API to cancel pending requests, preventing race conditions and improving UX.
+- _Monorepo Structure:_ Chosen for better code organization and sharing of types and validation logic between frontend and backend.
+- _Frontend Validation:_ Performed to provide immediate feedback to the user, ensuring that the input adheres to expected formats before sending a request.
+- _Backend Validation:_ Ensures data integrity and security by re-validating the input on the server side, regardless of frontend validation.
+- _Request Cancellation:_ Utilized the Abort Controller API to cancel pending requests, preventing race conditions and improving UX.
