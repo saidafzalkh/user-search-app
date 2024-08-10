@@ -74,10 +74,10 @@ cp apps/frontend/.env.example apps/frontend/.env
 ```
 
 - Edit the API Base URL
-  Open the newly created .env file and update the VITE_BASE_API_URL variable to point to your backend URL. By default, this should be:
+  Open the newly created .env file and update the VITE_API_BASE_URL variable to point to your backend URL. By default, this should be:
 
 ```bash
-VITE_BASE_API_URL=http://localhost:3001
+VITE_API_BASE_URL=http://localhost:3001
 ```
 
 Adjust the URL if your backend is running on a different address.
